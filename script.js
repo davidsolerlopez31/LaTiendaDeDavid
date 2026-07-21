@@ -11,19 +11,12 @@ const listaCarrito = document.getElementById("listaCarrito");
 const totalTexto = document.getElementById("total");
 
 const carritoBox = document.getElementById("carrito");
-const cerrarCarrito = document.getElementById("cerrarCarrito");
-
-cerrarCarrito.onclick = function(){
-
-    carritoBox.classList.add("oculto");
-
-};
 const botonCarrito = document.getElementById("verCarrito");
 const cerrarCarrito = document.getElementById("cerrarCarrito");
 
 cerrarCarrito.addEventListener("click",()=>{
 
-    carr
+    carritoBox.classList.add("oculto");
 
 });
 
@@ -50,7 +43,6 @@ botonesComprar.forEach(boton => {
 
         const nombre = boton.dataset.nombre;
         const precio = Number(boton.dataset.precio);
-        const imagen = boton.dataset.imagen;
 
         const existe = carrito.find(p => p.nombre === nombre);
 
@@ -63,7 +55,6 @@ botonesComprar.forEach(boton => {
             carrito.push({
                 nombre,
                 precio,
-                imagen,
                 cantidad: 1
             });
 
@@ -509,4 +500,3 @@ ${total.toFixed(2)} €`;
 
 
 });
-
