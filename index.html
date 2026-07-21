@@ -68,6 +68,23 @@ footer {
 </style>
 </head>
 
+<script>
+function buscarProductos() {
+  let filtro = document.getElementById("buscador").value.toUpperCase();
+  let productos = document.getElementsByClassName("producto-item");
+
+  for (let i = 0; i < productos.length; i++) {
+    let nombre = productos[i].getElementsByTagName("h2")[0];
+
+    if (nombre.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+      productos[i].style.display = "";
+    } else {
+      productos[i].style.display = "none";
+    }
+  }
+}
+</script>
+
 <body>
 
 <header>
@@ -90,6 +107,15 @@ footer {
 <a href="#informatica">Informática</a>
     
 </nav>
+
+<div style="text-align:center; padding:20px;">
+  <input
+    type="text"
+    id="buscador"
+    onkeyup="buscarProductos()"
+    placeholder="🔍 Buscar productos..."
+    style="width:80%; max-width:400px; padding:12px; font-size:16px; border-radius:8px; border:1px solid #ccc;">
+</div>
     
 <section style="background:white; padding:20px; text-align:center;">
 <h2>¿Por qué comprar en La Tienda de David?</h2>
@@ -103,7 +129,7 @@ footer {
 
 <div id="productos" class="productos">
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/camiseta.jpg">
 <h2>Camiseta básica premium</h2>
 <p>Ropa cómoda y de calidad</p>
@@ -113,7 +139,7 @@ footer {
 </a>
 </div>
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/sudadera.jpg">
 <h2>Sudadera urbana</h2>
 <p>Estilo y comodidad</p>
@@ -123,7 +149,7 @@ footer {
 </a>
 </div>
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/zapatillas.jpg">
 <h2>Zapatillas deportivas</h2>
 <p>Perfectas para el día a día</p>
@@ -135,7 +161,7 @@ footer {
 
 <h2 id="tecnologia" style="text-align:center;">💻 Tecnología</h2>
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/auriculares.jpg">
 <h2>Auriculares inalámbricos</h2>
 <p>Sonido de alta calidad</p>
@@ -145,7 +171,7 @@ footer {
 </a>
 </div>
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/smartwatch.jpg">
 <h2>Smartwatch inteligente</h2>
 <p>Tecnología para tu muñeca</p>
@@ -155,7 +181,7 @@ footer {
 </a>
 </div>
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/cargador.jpg">
 <h2>Cargador rápido USB-C</h2>
 <p>Carga rápida y segura</p>
@@ -167,7 +193,7 @@ footer {
 
 <h2 id="informatica" style="text-align:center;">🖥️ Informática</h2>
     
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/teclado.jpg">
 <h2>Teclado gaming</h2>
 <p>Para jugar y trabajar</p>
@@ -177,7 +203,7 @@ footer {
 </a>
 </div>
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/raton.jpg">
 <h2>Ratón inalámbrico</h2>
 <p>Precisión y comodidad</p>
@@ -187,7 +213,7 @@ footer {
 </a>
 </div>
 
-<div class="producto">
+<div class="producto producto-item">
 <img src="imagenes/alfombrilla.jpg">
 <h2>Alfombrilla gaming</h2>
 <p>Diseño profesional</p>
