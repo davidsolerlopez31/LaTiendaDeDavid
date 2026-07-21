@@ -1,246 +1,488 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Tienda de David</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Tienda de David</title>
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f2f2f2;
-}
+    <link rel="stylesheet" href="style.css">
 
-header {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 25px;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-nav {
-    background: white;
-    padding: 15px;
-    text-align: center;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-nav a {
-    margin: 10px;
-    text-decoration: none;
-    color: #111;
-    font-weight: bold;
-}
-
-.productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.producto {
-    background: white;
-    width: 280px;
-    margin: 15px;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.producto img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-button {
-    background: #111;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-}
-</style>
+    <script src="https://kit.fontawesome.com/6d2ea823d0.js" crossorigin="anonymous"></script>
 </head>
-
-<script>
-function buscarProductos() {
-  let filtro = document.getElementById("buscador").value.toUpperCase();
-  let productos = document.getElementsByClassName("producto-item");
-
-  for (let i = 0; i < productos.length; i++) {
-    let nombre = productos[i].getElementsByTagName("h2")[0];
-
-    if (nombre.innerHTML.toUpperCase().indexOf(filtro) > -1) {
-      productos[i].style.display = "";
-    } else {
-      productos[i].style.display = "none";
-    }
-  }
-}
-</script>
-
-<script>
-let carrito = 0;
-
-function agregarCarrito() {
-    carrito++;
-    document.getElementById("contadorCarrito").innerText = carrito;
-}
-</script>
 
 <body>
 
 <header>
-<img src="imagenes/logo.png" alt="La Tienda de David" style="width:150px;">
 
-<h1>🛒 La Tienda de David</h1>
+    <div class="logo">
+        🛒 <span>La Tienda de David</span>
+    </div>
 
-<div style="position:absolute;top:20px;right:20px;font-size:22px;">
-🛒 <span id="contadorCarrito">0</span>
-</div>
+    <div class="buscador">
 
-<p>Ropa, tecnología y accesorios al mejor precio</p>
+        <input
+        type="text"
+        id="buscar"
+        placeholder="Buscar productos...">
 
-<p>🚚 Envíos rápidos | ⭐ Calidad garantizada | 💬 Atención por WhatsApp</p>
+        <button>
+            <i class="fas fa-search"></i>
+        </button>
 
-<a href="#productos">
-<button>Ver productos</button>
-</a>
+    </div>
+
+    <div class="acciones">
+
+        <button id="modoOscuro">
+            🌙
+        </button>
+
+        <button id="abrirCarrito">
+
+            🛒
+
+            <span id="contadorCarrito">
+                0
+            </span>
+
+        </button>
+
+    </div>
+
 </header>
 
-<nav>
-<a href="#ropa">Ropa</a>
-<a href="#tecnologia">Tecnología</a>
-<a href="#informatica">Informática</a>
-    
-</nav>
+<section class="hero">
 
-<div style="text-align:center; padding:20px;">
-  <input
-    type="text"
-    id="buscador"
-    onkeyup="buscarProductos()"
-    placeholder="🔍 Buscar productos..."
-    style="width:80%; max-width:400px; padding:12px; font-size:16px; border-radius:8px; border:1px solid #ccc;">
-</div>
-    
-<section style="background:white; padding:20px; text-align:center;">
-<h2>¿Por qué comprar en La Tienda de David?</h2>
-<p>⭐ Productos seleccionados con calidad</p>
-<p>🚚 Envíos rápidos y seguros</p>
-<p>💬 Atención personalizada por WhatsApp</p>
-<p>🔒 Compra fácil y segura</p>
+    <h1>Bienvenido a La Tienda de David</h1>
+
+    <p>
+        Productos de calidad al mejor precio.
+    </p>
+
 </section>
 
-<h2 id="ropa" style="text-align:center;">👕 Ropa</h2>
+<nav class="categorias">
 
-<div id="productos" class="productos">
+<button class="filtro activo"
+data-categoria="todos">
+Todos
+</button>
 
-<div class="producto producto-item">
-<img src="imagenes/camiseta.jpg">
-<h2>Camiseta básica premium</h2>
-<p>Ropa cómoda y de calidad</p>
-<h3>19,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Camiseta%20básica%20premium%20por%2019,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
+<button class="filtro"
+data-categoria="ropa">
+Ropa
+</button>
+
+<button class="filtro"
+data-categoria="tecnologia">
+Tecnología
+</button>
+
+<button class="filtro"
+data-categoria="informatica">
+Informática
+</button>
+
+</nav>
+
+<main>
+
+<div class="productos">
+
+<!-- PRODUCTO 1 -->
+
+<div class="producto"
+data-categoria="ropa">
+
+<img
+src="img/camiseta.jpg"
+alt="Camiseta">
+
+<h2>Camiseta Premium</h2>
+
+<p class="precio">
+19,99 €
+</p>
+
+<div class="botones">
+
+<button class="agregar">
+
+Añadir al carrito
+
+</button>
+
+<a
+target="_blank"
+href="https://wa.me/?text=Hola,%20quiero%20comprar%20la%20Camiseta%20Premium">
+
+<button class="comprar">
+
+Comprar ahora
+
+</button>
+
 </a>
+
 </div>
 
-<div class="producto producto-item">
-<img src="imagenes/sudadera.jpg">
-<h2>Sudadera urbana</h2>
-<p>Estilo y comodidad</p>
-<h3>34,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Sudadera%20urbana%20por%2034,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
-</a>
 </div>
 
-<div class="producto producto-item">
-<img src="imagenes/zapatillas.jpg">
-<h2>Zapatillas deportivas</h2>
-<p>Perfectas para el día a día</p>
-<h3>49,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Zapatillas%20deportivas%20por%2049,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
+<!-- PRODUCTO 2 -->
+
+<div class="producto"
+data-categoria="ropa">
+
+<img
+src="img/sudadera.jpg"
+alt="Sudadera">
+
+<h2>Sudadera Casual</h2>
+
+<p class="precio">
+34,99 €
+</p>
+
+<div class="botones">
+
+<button class="agregar">
+
+Añadir al carrito
+
+</button>
+
+<a
+target="_blank"
+href="https://wa.me/?text=Hola,%20quiero%20comprar%20la%20Sudadera%20Casual">
+
+<button class="comprar">
+
+Comprar ahora
+
+</button>
+
 </a>
+
 </div>
 
-<h2 id="tecnologia" style="text-align:center;">💻 Tecnología</h2>
-
-<div class="producto producto-item">
-<img src="imagenes/auriculares.jpg">
-<h2>Auriculares inalámbricos</h2>
-<p>Sonido de alta calidad</p>
-<h3>29,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Auriculares%20inalámbricos%20por%2029,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
-</a>
 </div>
 
-<div class="producto producto-item">
-<img src="imagenes/smartwatch.jpg">
-<h2>Smartwatch inteligente</h2>
-<p>Tecnología para tu muñeca</p>
-<h3>59,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Smartwatch%20inteligente%20por%2059,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
+<!-- PRODUCTO 3 -->
+
+<div class="producto"
+data-categoria="ropa">
+
+<img
+src="img/zapatillas.jpg"
+alt="Zapatillas">
+
+<h2>Zapatillas Urban</h2>
+
+<p class="precio">
+59,99 €
+</p>
+
+<div class="botones">
+
+<button class="agregar">
+
+Añadir al carrito
+
+</button>
+
+<a
+target="_blank"
+href="https://wa.me/?text=Hola,%20quiero%20comprar%20las%20Zapatillas%20Urban">
+
+<button class="comprar">
+
+Comprar ahora
+
+</button>
+
 </a>
+
 </div>
 
-<div class="producto producto-item">
-<img src="imagenes/cargador.jpg">
-<h2>Cargador rápido USB-C</h2>
-<p>Carga rápida y segura</p>
-<h3>14,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Cargador%20USB-C%20por%2014,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
-</a>
 </div>
 
-<h2 id="informatica" style="text-align:center;">🖥️ Informática</h2>
-    
-<div class="producto producto-item">
-<img src="imagenes/teclado.jpg">
-<h2>Teclado gaming</h2>
-<p>Para jugar y trabajar</p>
-<h3>39,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Teclado%20gaming%20por%2039,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
-</a>
+<!-- PRODUCTO 4 -->
+
+<div class="producto" data-categoria="tecnologia">
+
+    <img src="img/auriculares.jpg" alt="Auriculares">
+
+    <h2>Auriculares Bluetooth</h2>
+
+    <p class="precio">49,99 €</p>
+
+    <div class="botones">
+
+        <button class="agregar">
+            Añadir al carrito
+        </button>
+
+        <a target="_blank"
+           href="https://wa.me/?text=Hola,%20quiero%20comprar%20los%20Auriculares%20Bluetooth">
+
+            <button class="comprar">
+                Comprar ahora
+            </button>
+
+        </a>
+
+    </div>
+
 </div>
 
-<div class="producto producto-item">
-<img src="imagenes/raton.jpg">
-<h2>Ratón inalámbrico</h2>
-<p>Precisión y comodidad</p>
-<h3>19,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Ratón%20inalámbrico%20por%2019,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
-</a>
+<!-- PRODUCTO 5 -->
+
+<div class="producto" data-categoria="tecnologia">
+
+    <img src="img/smartwatch.jpg" alt="Smartwatch">
+
+    <h2>Smartwatch Sport</h2>
+
+    <p class="precio">89,99 €</p>
+
+    <div class="botones">
+
+        <button class="agregar">
+            Añadir al carrito
+        </button>
+
+        <a target="_blank"
+           href="https://wa.me/?text=Hola,%20quiero%20comprar%20el%20Smartwatch%20Sport">
+
+            <button class="comprar">
+                Comprar ahora
+            </button>
+
+        </a>
+
+    </div>
+
 </div>
 
-<div class="producto producto-item">
-<img src="imagenes/alfombrilla.jpg">
-<h2>Alfombrilla gaming</h2>
-<p>Diseño profesional</p>
-<h3>12,99 €</h3>
-<a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Alfombrilla%20gaming%20por%2012,99€">
-<button onclick="agregarCarrito()">Añadir al carrito</button>
-</a>
-    
+<!-- PRODUCTO 6 -->
+
+<div class="producto" data-categoria="tecnologia">
+
+    <img src="img/cargador.jpg" alt="Cargador">
+
+    <h2>Cargador Rápido USB-C</h2>
+
+    <p class="precio">24,99 €</p>
+
+    <div class="botones">
+
+        <button class="agregar">
+            Añadir al carrito
+        </button>
+
+        <a target="_blank"
+           href="https://wa.me/?text=Hola,%20quiero%20comprar%20el%20Cargador%20Rápido%20USB-C">
+
+            <button class="comprar">
+                Comprar ahora
+            </button>
+
+        </a>
+
+    </div>
+
 </div>
 
+<!-- PRODUCTO 7 -->
+
+<div class="producto" data-categoria="informatica">
+
+    <img src="img/teclado.jpg" alt="Teclado">
+
+    <h2>Teclado Mecánico RGB</h2>
+
+    <p class="precio">69,99 €</p>
+
+    <div class="botones">
+
+        <button class="agregar">
+            Añadir al carrito
+        </button>
+
+        <a target="_blank"
+           href="https://wa.me/?text=Hola,%20quiero%20comprar%20el%20Teclado%20Mecánico%20RGB">
+
+            <button class="comprar">
+                Comprar ahora
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- PRODUCTO 8 -->
+
+<div class="producto" data-categoria="informatica">
+
+    <img src="img/raton.jpg" alt="Ratón">
+
+    <h2>Ratón Gaming</h2>
+
+    <p class="precio">39,99 €</p>
+
+    <div class="botones">
+
+        <button class="agregar">
+            Añadir al carrito
+        </button>
+
+        <a target="_blank"
+           href="https://wa.me/?text=Hola,%20quiero%20comprar%20el%20Ratón%20Gaming">
+
+            <button class="comprar">
+                Comprar ahora
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- PRODUCTO 9 -->
+
+<div class="producto" data-categoria="informatica">
+
+    <img src="img/alfombrilla.jpg" alt="Alfombrilla">
+
+    <h2>Alfombrilla XL</h2>
+
+    <p class="precio">19,99 €</p>
+
+    <div class="botones">
+
+        <button class="agregar">
+            Añadir al carrito
+        </button>
+
+        <a target="_blank"
+           href="https://wa.me/?text=Hola,%20quiero%20comprar%20la%20Alfombrilla%20XL">
+
+            <button class="comprar">
+                Comprar ahora
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- PANEL DEL CARRITO -->
+
+<aside id="carrito" class="carrito">
+
+    <div class="cabecera-carrito">
+
+        <h2>🛒 Mi carrito</h2>
+
+        <button id="cerrarCarrito">
+            ✖
+        </button>
+
+    </div>
+
+    <div id="listaCarrito">
+
+        <p class="vacio">
+            Tu carrito está vacío.
+        </p>
+
+    </div>
+
+    <div class="footer-carrito">
+
+        <h3>
+            Total:
+            <span id="total">
+                0,00 €
+            </span>
+        </h3>
+
+        <button id="vaciarCarrito">
+            Vaciar carrito
+        </button>
+
+    </div>
+
+</aside>
+
+<!-- BOTÓN VOLVER ARRIBA -->
+
+<button id="volverArriba" title="Volver arriba">
+    ↑
+</button>
+
+<!-- FOOTER -->
 
 <footer>
-© 2026 La Tienda de David - Todos los derechos reservados
+
+    <div class="footer-contenido">
+
+        <h2>La Tienda de David</h2>
+
+        <p>
+            Tu tienda online de confianza para ropa, tecnología e informática.
+        </p>
+
+        <div class="redes">
+
+            <a href="#" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+
+            <a href="#" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+
+            <a href="#" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 La Tienda de David. Todos los derechos reservados.
+        </p>
+
+    </div>
+
 </footer>
+
+<!-- NOTIFICACIÓN -->
+
+<div id="notificacion" class="notificacion">
+    Producto añadido al carrito 🛒
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
 
 </body>
 </html>
