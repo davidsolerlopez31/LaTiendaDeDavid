@@ -1,5 +1,8 @@
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarCarrito();
+});
 
 const botones = document.querySelectorAll(".comprar");
 const contador = document.getElementById("contador");
