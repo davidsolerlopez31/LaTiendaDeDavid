@@ -329,32 +329,3 @@ button {
 
 }
 
-const modal = document.getElementById("modalProducto");
-
-const imagenModal = document.getElementById("modalImagen");
-const tituloModal = document.getElementById("modalTitulo");
-const descripcionModal = document.getElementById("modalDescripcion");
-const precioModal = document.getElementById("modalPrecio");
-
-document.querySelectorAll(".detalles").forEach((boton,index)=>{
-
-    boton.addEventListener("click",()=>{
-
-        const producto = boton.closest(".producto");
-
-        imagenModal.src = producto.querySelector("img").src;
-        tituloModal.textContent = producto.querySelector("h2").textContent;
-        descripcionModal.textContent = producto.querySelector("p").textContent;
-        precioModal.textContent = producto.querySelector("strong").textContent;
-
-        modal.classList.remove("oculto");
-
-    });
-
-});
-
-document.getElementById("cerrarModal").onclick = ()=>{
-
-    modal.classList.add("oculto");
-
-};
