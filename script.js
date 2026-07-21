@@ -50,6 +50,7 @@ botonesComprar.forEach(boton => {
 
         const nombre = boton.dataset.nombre;
         const precio = Number(boton.dataset.precio);
+        const imagen = boton.dataset.imagen;
 
         const existe = carrito.find(p => p.nombre === nombre);
 
@@ -62,6 +63,7 @@ botonesComprar.forEach(boton => {
             carrito.push({
                 nombre,
                 precio,
+                imagen,
                 cantidad: 1
             });
 
