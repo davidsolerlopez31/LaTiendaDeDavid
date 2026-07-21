@@ -118,6 +118,10 @@ button {
 
 
 .oculto {
+    display: none;
+}
+
+#carrito {
     display: block;
 }
 
