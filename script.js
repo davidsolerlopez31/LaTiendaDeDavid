@@ -161,3 +161,28 @@ Productos:
     );
 
 });
+
+function filtrarCategoria(categoria){
+
+    document.querySelectorAll(".producto").forEach(producto=>{
+
+        if(producto.classList.contains(categoria)){
+            producto.style.display="block";
+        }else{
+            producto.style.display="none";
+        }
+
+    });
+
+}
+
+
+function mostrarTodos(){
+
+    document.querySelectorAll(".producto").forEach(producto=>{
+
+        producto.style.display="block";
+
+    });
+
+}
