@@ -210,3 +210,48 @@ button {
 
 }
 
+.producto {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+
+.producto:hover {
+    transform: translateY(-8px);
+}
+
+
+.etiqueta {
+
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    background: #ff9800;
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+}
+
+
+.producto strong {
+
+    color: #111;
+    font-size: 26px;
+
+}
+
+
+.comprar {
+
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
