@@ -757,4 +757,19 @@ header{
 
 }
 
-}
+#cerrarCarrito{
+
+    position:absolute;
+
+    top:15px;
+    right:20px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:#333;
+
+}   
+
+
