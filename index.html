@@ -85,12 +85,25 @@ function buscarProductos() {
 }
 </script>
 
+<script>
+let carrito = 0;
+
+function agregarCarrito() {
+    carrito++;
+    document.getElementById("contadorCarrito").innerText = carrito;
+}
+</script>
+
 <body>
 
 <header>
 <img src="imagenes/logo.png" alt="La Tienda de David" style="width:150px;">
 
 <h1>🛒 La Tienda de David</h1>
+
+<div style="position:absolute;top:20px;right:20px;font-size:22px;">
+🛒 <span id="contadorCarrito">0</span>
+</div>
 
 <p>Ropa, tecnología y accesorios al mejor precio</p>
 
@@ -135,7 +148,7 @@ function buscarProductos() {
 <p>Ropa cómoda y de calidad</p>
 <h3>19,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Camiseta%20básica%20premium%20por%2019,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -145,7 +158,7 @@ function buscarProductos() {
 <p>Estilo y comodidad</p>
 <h3>34,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Sudadera%20urbana%20por%2034,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -155,7 +168,7 @@ function buscarProductos() {
 <p>Perfectas para el día a día</p>
 <h3>49,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Zapatillas%20deportivas%20por%2049,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -167,7 +180,7 @@ function buscarProductos() {
 <p>Sonido de alta calidad</p>
 <h3>29,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Auriculares%20inalámbricos%20por%2029,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -177,7 +190,7 @@ function buscarProductos() {
 <p>Tecnología para tu muñeca</p>
 <h3>59,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Smartwatch%20inteligente%20por%2059,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -187,7 +200,7 @@ function buscarProductos() {
 <p>Carga rápida y segura</p>
 <h3>14,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Cargador%20USB-C%20por%2014,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -199,7 +212,7 @@ function buscarProductos() {
 <p>Para jugar y trabajar</p>
 <h3>39,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Teclado%20gaming%20por%2039,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -209,7 +222,7 @@ function buscarProductos() {
 <p>Precisión y comodidad</p>
 <h3>19,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Ratón%20inalámbrico%20por%2019,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
 </div>
 
@@ -219,7 +232,7 @@ function buscarProductos() {
 <p>Diseño profesional</p>
 <h3>12,99 €</h3>
 <a href="https://wa.me/+34633043371?text=Hola,%20quiero%20comprar%20Alfombrilla%20gaming%20por%2012,99€">
-<button>Comprar</button>
+<button onclick="agregarCarrito()">Añadir al carrito</button>
 </a>
     
 </div>
