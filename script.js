@@ -321,8 +321,11 @@ modal.style.display="flex";
 cerrarModal.addEventListener("click",()=>{
 
     modal.classList.add("oculto");
+    modal.style.display="none";
+    
 
 });
+
 
 
 // Cerrar al pulsar fuera
