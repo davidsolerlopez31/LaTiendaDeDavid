@@ -187,8 +187,6 @@ confirmarPedido.addEventListener("click", () => {
     const texto = encodeURIComponent(mensaje);
 
     window.open(
-        "https://wa.me/?text=" + texto,
-        "_blank"
-    );
-
-});
+    "https://wa.me/34633043371?text=" + texto,
+    "_blank"
+);
