@@ -294,3 +294,37 @@ button {
     color:#ff9800;
 
 }
+
+
+.valoracion {
+
+    color: #ff9800;
+    font-size: 20px;
+    margin: 10px 0;
+
+}
+
+
+.stock {
+
+    color: green;
+    font-weight: bold;
+
+}
+
+
+.detalles {
+
+    background: #eee;
+    color: #111;
+    width: 100%;
+    margin-top: 10px;
+
+}
+
+
+.detalles:hover {
+
+    background: #ddd;
+
+}
