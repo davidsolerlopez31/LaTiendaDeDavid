@@ -1,3 +1,4 @@
+
 let carrito = [];
 
 const botones = document.querySelectorAll(".comprar");
@@ -10,20 +11,18 @@ const botonPedido = document.getElementById("pedido");
 const buscador = document.getElementById("buscador");
 
 
-// Añadir productos al carrito
+// Añadir productos
 botones.forEach(boton => {
 
-    boton.addEventListener("click", () => {
+    boton.addEventListener("click", function(){
 
-        const nombre = boton.dataset.nombre;
-        const precio = Number(boton.dataset.precio);
+        const nombre = this.dataset.nombre;
+        const precio = Number(this.dataset.precio);
 
-        const productoExistente = carrito.find(
-            producto => producto.nombre === nombre
-        );
+        const encontrado = carrito.find(p => p.nombre === nombre);
 
-        if(productoExistente){
-            productoExistente.cantidad++;
+        if(encontrado){
+            encontrado.cantidad++;
         } else {
             carrito.push({
                 nombre: nombre,
@@ -39,14 +38,10 @@ botones.forEach(boton => {
 });
 
 
-// Mostrar carrito
+// Abrir y cerrar carrito
 verCarrito.addEventListener("click", () => {
 
-    if (carritoBox.classList.contains("oculto")) {
-        carritoBox.classList.remove("oculto");
-    } else {
-        carritoBox.classList.add("oculto");
-    }
+    carritoBox.classList.toggle("oculto");
 
 });
 
@@ -57,74 +52,54 @@ function actualizarCarrito(){
     listaCarrito.innerHTML = "";
 
     let total = 0;
-    let cantidadTotal = 0;
+    let cantidad = 0;
 
 
-    carrito.forEach((producto, indice) => {
+    carrito.forEach((producto,index)=>{
 
         total += producto.precio * producto.cantidad;
-        cantidadTotal += producto.cantidad;
+        cantidad += producto.cantidad;
 
 
-        const linea = document.createElement("div");
-
-        linea.innerHTML = `
-        <span>
-        ${producto.nombre} 
-        x${producto.cantidad}
-        </span>
-
-        <span>
-        ${producto.precio * producto.cantidad} €
-        <button onclick="eliminarProducto(${indice})">
+        listaCarrito.innerHTML += `
+        <div>
+        ${producto.nombre} x${producto.cantidad}
+        - ${producto.precio * producto.cantidad}€
+        <button onclick="eliminarProducto(${index})">
         ❌
         </button>
-        </span>
+        </div>
         `;
-
-
-        listaCarrito.appendChild(linea);
 
     });
 
 
-    contador.textContent = cantidadTotal;
+    contador.textContent = cantidad;
     totalTexto.textContent = total;
 
 }
 
 
-// Eliminar producto
-function eliminarProducto(indice){
+// Eliminar
+function eliminarProducto(index){
 
-    carrito.splice(indice,1);
-
+    carrito.splice(index,1);
     actualizarCarrito();
 
 }
 
 
 // Buscador
-buscador.addEventListener("input", () => {
+buscador.addEventListener("input",()=>{
 
-    const texto = buscador.value.toLowerCase();
+    let texto = buscador.value.toLowerCase();
 
-    const productos = document.querySelectorAll(".producto");
+    document.querySelectorAll(".producto").forEach(producto=>{
 
+        let nombre = producto.querySelector("h2").textContent.toLowerCase();
 
-    productos.forEach(producto => {
-
-        const nombre = producto
-        .querySelector("h2")
-        .textContent
-        .toLowerCase();
-
-
-        if(nombre.includes(texto)){
-            producto.style.display = "block";
-        } else {
-            producto.style.display = "none";
-        }
+        producto.style.display =
+        nombre.includes(texto) ? "block" : "none";
 
     });
 
@@ -132,61 +107,31 @@ buscador.addEventListener("input", () => {
 
 
 // Preparar pedido
-botonPedido.addEventListener("click", () => {
+botonPedido.addEventListener("click",()=>{
 
-    if (carrito.length === 0) {
+    if(carrito.length===0){
         alert("El carrito está vacío");
         return;
     }
 
-    const formaPago = document.getElementById("pago").value;
+    let mensaje="PEDIDO LA TIENDA DE DAVID\n\n";
 
-    const resumen = document.getElementById("resumenPedido");
-    const confirmacion = document.getElementById("confirmacion");
+    carrito.forEach(producto=>{
 
-    let texto = "<h3>Tu pedido:</h3>";
-
-    carrito.forEach(producto => {
-        texto += `
-        <p>
-        ${producto.nombre} x${producto.cantidad}
-        - ${producto.precio * producto.cantidad} €
-        </p>`;
-    });
-
-    texto += `
-    <hr>
-    <p>Total: ${totalTexto.textContent} €</p>
-    <p>Pago elegido: ${formaPago}</p>
-    `;
-
-    resumen.innerHTML = texto;
-
-    confirmacion.classList.remove("oculto");
-
-});
-
-const confirmarPedido = document.getElementById("confirmarPedido");
-
-confirmarPedido.addEventListener("click", () => {
-
-    let mensaje = "Hola, quiero hacer este pedido:\n\n";
-
-    carrito.forEach(producto => {
-
-        mensaje += producto.nombre + 
-        " x" + producto.cantidad + 
-        " - " + 
-        (producto.precio * producto.cantidad) + "€\n";
+        mensaje += `${producto.nombre} x${producto.cantidad} - ${producto.precio * producto.cantidad}€\n`;
 
     });
 
-    mensaje += "\nTotal: " + totalTexto.textContent + "€";
+
+    mensaje += `\nTotal: ${totalTexto.textContent}€`;
 
 
-    const texto = encodeURIComponent(mensaje);
+    let texto = encodeURIComponent(mensaje);
+
 
     window.open(
-    "https://wa.me/34633043371?text=" + texto,
-    "_blank"
-);
+        "https://wa.me/34633043371?text="+texto,
+        "_blank"
+    );
+
+});
