@@ -79,6 +79,8 @@ function actualizarCarrito(){
 
 }
 
+localStorage.setItem("carrito", JSON.stringify(carrito));
+
 
 // Eliminar
 function eliminarProducto(index){
