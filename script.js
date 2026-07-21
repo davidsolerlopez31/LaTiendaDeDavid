@@ -165,3 +165,30 @@ botonPedido.addEventListener("click", () => {
     confirmacion.classList.remove("oculto");
 
 });
+
+const confirmarPedido = document.getElementById("confirmarPedido");
+
+confirmarPedido.addEventListener("click", () => {
+
+    let mensaje = "Hola, quiero hacer este pedido:\n\n";
+
+    carrito.forEach(producto => {
+
+        mensaje += producto.nombre + 
+        " x" + producto.cantidad + 
+        " - " + 
+        (producto.precio * producto.cantidad) + "€\n";
+
+    });
+
+    mensaje += "\nTotal: " + totalTexto.textContent + "€";
+
+
+    const texto = encodeURIComponent(mensaje);
+
+    window.open(
+        "https://wa.me/?text=" + texto,
+        "_blank"
+    );
+
+});
