@@ -134,34 +134,22 @@ buscador.addEventListener("input", () => {
 // Preparar pedido
 botonPedido.addEventListener("click", () => {
 
-
-    if(carrito.length === 0){
-
+    if (carrito.length === 0) {
         alert("El carrito está vacío");
-
         return;
-
     }
-
 
     const formaPago = document.getElementById("pago").value;
 
-
     let mensaje = "PEDIDO - LA TIENDA DE DAVID\n\n";
 
-
     carrito.forEach(producto => {
-
         mensaje += `${producto.nombre} x${producto.cantidad} - ${producto.precio * producto.cantidad}€\n`;
-
     });
 
-
-    mensaje += `\nTotal: ${totalTexto.textContent}€`;
-    mensaje += `\nForma de pago: ${formaPago}`;
-
+    mensaje += "\nTotal: " + totalTexto.textContent + "€";
+    mensaje += "\nForma de pago: " + formaPago;
 
     alert(mensaje);
-
 
 });
