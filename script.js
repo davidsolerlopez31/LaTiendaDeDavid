@@ -186,3 +186,15 @@ function mostrarTodos(){
     });
 
 }
+
+document.querySelectorAll(".detalles").forEach(boton=>{
+
+    boton.addEventListener("click",()=>{
+
+        alert(
+        "Producto de calidad de La Tienda de David.\n\nMás información próximamente."
+        );
+
+    });
+
+});
