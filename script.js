@@ -11,12 +11,19 @@ const listaCarrito = document.getElementById("listaCarrito");
 const totalTexto = document.getElementById("total");
 
 const carritoBox = document.getElementById("carrito");
+const cerrarCarrito = document.getElementById("cerrarCarrito");
+
+cerrarCarrito.onclick = function(){
+
+    carritoBox.classList.add("oculto");
+
+};
 const botonCarrito = document.getElementById("verCarrito");
 const cerrarCarrito = document.getElementById("cerrarCarrito");
 
 cerrarCarrito.addEventListener("click",()=>{
 
-    carritoBox.classList.add("oculto");
+    carr
 
 });
 
