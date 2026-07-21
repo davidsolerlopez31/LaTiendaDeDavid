@@ -281,3 +281,16 @@ button {
 
 }
 
+.menu button{
+
+    background:none;
+    color:white;
+    font-weight:bold;
+
+}
+
+.menu button:hover{
+
+    color:#ff9800;
+
+}
