@@ -308,7 +308,7 @@ document.querySelectorAll(".detalles").forEach(boton => {
 
 
         modal.classList.remove("oculto");
-
+modal.style.display="flex";
 
     });
 
