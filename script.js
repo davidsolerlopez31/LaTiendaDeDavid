@@ -1,251 +1,199 @@
+// ======================================
+// LA TIENDA DE DAVID
+// ======================================
 
+// Carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-document.addEventListener("DOMContentLoaded", () => {
-    actualizarCarrito();
-});
 
-const botones = document.querySelectorAll(".comprar");
+// Elementos
 const contador = document.getElementById("contador");
 const listaCarrito = document.getElementById("listaCarrito");
 const totalTexto = document.getElementById("total");
-const carritoBox = document.getElementById("carrito");
-const verCarrito = document.getElementById("verCarrito");
-const botonPedido = document.getElementById("pedido");
-const buscador = document.getElementById("buscador");
 
+const carritoBox = document.getElementById("carrito");
+const botonCarrito = document.getElementById("verCarrito");
+
+const botonesComprar = document.querySelectorAll(".comprar");
+
+// Cargar al iniciar
+document.addEventListener("DOMContentLoaded", () => {
+
+    actualizarCarrito();
+
+});
+
+// Abrir / cerrar carrito
+botonCarrito.addEventListener("click", () => {
+
+    carritoBox.classList.toggle("oculto");
+
+});
 
 // Añadir productos
-botones.forEach(boton => {
+botonesComprar.forEach(boton => {
 
-    boton.addEventListener("click", function(){
+    boton.addEventListener("click", () => {
 
-        const nombre = this.dataset.nombre;
-        const precio = Number(this.dataset.precio);
+        const nombre = boton.dataset.nombre;
+        const precio = Number(boton.dataset.precio);
 
-        const encontrado = carrito.find(p => p.nombre === nombre);
+        const existe = carrito.find(p => p.nombre === nombre);
 
-        if(encontrado){
-            encontrado.cantidad++;
+        if (existe) {
+
+            existe.cantidad++;
+
         } else {
+
             carrito.push({
-                nombre: nombre,
-                precio: precio,
+                nombre,
+                precio,
                 cantidad: 1
             });
+
         }
 
+        guardarCarrito();
         actualizarCarrito();
 
     });
 
 });
 
+// Guardar carrito
+function guardarCarrito() {
 
-// Abrir y cerrar carrito
-verCarrito.addEventListener("click", () => {
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
 
-    carritoBox.classList.toggle("oculto");
-
-});
-
+}
 
 // Actualizar carrito
-function actualizarCarrito(){
+function actualizarCarrito() {
 
     listaCarrito.innerHTML = "";
 
     let total = 0;
     let cantidad = 0;
 
-
-    carrito.forEach((producto,index)=>{
+    carrito.forEach((producto, index) => {
 
         total += producto.precio * producto.cantidad;
         cantidad += producto.cantidad;
 
-
         listaCarrito.innerHTML += `
         <div>
-        ${producto.nombre} x${producto.cantidad}
-        - ${producto.precio * producto.cantidad}€
-        <button onclick="eliminarProducto(${index})">
-        ❌
-        </button>
+            <span>
+                ${producto.nombre}
+                x${producto.cantidad}
+            </span>
+
+            <button
+                onclick="eliminarProducto(${index})">
+                ❌
+            </button>
         </div>
         `;
 
     });
 
-
     contador.textContent = cantidad;
-totalTexto.textContent = total;
+    totalTexto.textContent = total.toFixed(2);
 
-localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+// ======================================
+// ELIMINAR PRODUCTO
+// ======================================
 
-
-
-// Eliminar
 function eliminarProducto(index){
 
     carrito.splice(index,1);
+
+    guardarCarrito();
+
     actualizarCarrito();
 
 }
 
+// ======================================
+// VACIAR CARRITO
+// ======================================
 
-// Buscador
-buscador.addEventListener("input",()=>{
+const botonVaciar = document.getElementById("vaciarCarrito");
 
-    let texto = buscador.value.toLowerCase();
+botonVaciar.addEventListener("click",()=>{
 
-    document.querySelectorAll(".producto").forEach(producto=>{
+    if(confirm("¿Vaciar todo el carrito?")){
 
-        let nombre = producto.querySelector("h2").textContent.toLowerCase();
+        carrito=[];
 
-        producto.style.display =
-        nombre.includes(texto) ? "block" : "none";
+        guardarCarrito();
 
-    });
+        actualizarCarrito();
 
-});
-
-
-// Preparar pedido
-botonPedido.addEventListener("click",()=>{
-    const nombreCliente = document.getElementById("nombreCliente").value;
-const telefonoCliente = document.getElementById("telefonoCliente").value;
-const direccionCliente = document.getElementById("direccionCliente").value;
-
-
-if(nombreCliente === "" || telefonoCliente === "" || direccionCliente === ""){
-
-    alert("Completa todos los datos del cliente");
-
-    return;
-
-}
-
-    if(carrito.length===0){
-        alert("El carrito está vacío");
-        return;
     }
 
-    let mensaje =
-`PEDIDO LA TIENDA DE DAVID
+});
 
-Cliente: ${nombreCliente}
-Teléfono: ${telefonoCliente}
-Dirección: ${direccionCliente}
+// ======================================
+// BUSCADOR
+// ======================================
 
-Productos:
-`;
+const buscador = document.getElementById("buscador");
 
-    carrito.forEach(producto=>{
+buscador.addEventListener("input",()=>{
 
-        mensaje += `${producto.nombre} x${producto.cantidad} - ${producto.precio * producto.cantidad}€\n`;
+    const texto=buscador.value.toLowerCase();
+
+    document.querySelectorAll(".producto").forEach(producto=>{
+
+        const nombre=producto.querySelector("h2")
+        .textContent
+        .toLowerCase();
+
+        producto.style.display=
+        nombre.includes(texto)
+        ? "block"
+        : "none";
 
     });
-
-
-    mensaje += `\nTotal: ${totalTexto.textContent}€`;
-
-
-    let texto = encodeURIComponent(mensaje);
-
-
-    window.open(
-        "https://wa.me/34633043371?text="+texto,
-        "_blank"
-    );
 
 });
 
-function filtrarCategoria(categoria){
+// ======================================
+// CATEGORÍAS
+// ======================================
 
-    document.querySelectorAll(".producto").forEach(producto=>{
-
-        if(producto.classList.contains(categoria)){
-            producto.style.display="block";
-        }else{
-            producto.style.display="none";
-        }
-
-    });
-
-}
-
-
-function mostrarTodos(){
-
-    document.querySelectorAll(".producto").forEach(producto=>{
-
-        producto.style.display="block";
-
-    });
-
-}
-
-document.querySelectorAll(".detalles").forEach(boton=>{
+document.querySelectorAll(".menu button").forEach(boton=>{
 
     boton.addEventListener("click",()=>{
 
-        alert(
-        "Producto de calidad de La Tienda de David.\n\nMás información próximamente."
-        );
+        const categoria=boton.dataset.categoria;
+
+        document.querySelectorAll(".producto").forEach(producto=>{
+
+            if(categoria==="todos"){
+
+                producto.style.display="block";
+
+                return;
+
+            }
+
+            producto.style.display=
+
+            producto.dataset.categoria===categoria
+
+            ? "block"
+
+            : "none";
+
+        });
 
     });
 
 });
 
-.modal{
-
-    position:fixed;
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    background:rgba(0,0,0,.7);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    z-index:999;
-
-}
-
-.modal-contenido{
-
-    background:white;
-
-    width:90%;
-    max-width:500px;
-
-    padding:20px;
-
-    border-radius:15px;
-
-    text-align:center;
-
-}
-
-.modal img{
-
-    width:100%;
-    border-radius:10px;
-
-}
-
-#cerrarModal{
-
-    float:right;
-
-    font-size:30px;
-
-    cursor:pointer;
-
-}
