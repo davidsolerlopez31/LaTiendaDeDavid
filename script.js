@@ -1,5 +1,5 @@
 
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const botones = document.querySelectorAll(".comprar");
 const contador = document.getElementById("contador");
