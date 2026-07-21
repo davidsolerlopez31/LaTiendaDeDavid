@@ -4,53 +4,126 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Tienda de David</title>
+
 <style>
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f5f5f5;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
 }
+
 header {
-    background: #111;
-    color: white;
-    padding: 30px;
+  background: linear-gradient(135deg, #ff7a00, #ff0066);
+  color: white;
+  padding: 35px 20px;
+  text-align: center;
 }
+
+header h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.hero {
+  padding: 30px;
+  text-align: center;
+}
+
+.hero h2 {
+  color: #333;
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
 .producto {
-    background: white;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 300px;
-    border-radius: 10px;
+  background: white;
+  width: 280px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px #ccc;
+  text-align: center;
 }
+
+.producto img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.precio {
+  font-size: 24px;
+  color: #ff0066;
+  font-weight: bold;
+}
+
 button {
-    background: #111;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+  background: #00a86b;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-<h1>La Tienda de David</h1>
-<p>Productos de calidad al mejor precio</p>
+<h1>🛒 La Tienda de David</h1>
+<p>Todo lo que necesitas, en un solo lugar</p>
 </header>
 
+<section class="hero">
+<h2>Productos destacados</h2>
+<p>Calidad, buenos precios y ofertas especiales.</p>
+</section>
+
+<section class="productos">
+
 <div class="producto">
-<h2>Pantalon Hombre Vaquero</h2>
-<p>Aquí irá la descripción del producto.</p>
+<img src="https://via.placeholder.com/300">
+<h3>Producto nuevo</h3>
+<p>Descripción del producto.</p>
+<p class="precio">19,99 €</p>
 <button>Comprar</button>
 </div>
 
 <div class="producto">
-<h2>Producto 2</h2>
-<p>Aquí irá la descripción del producto.</p>
+<img src="https://via.placeholder.com/300">
+<h3>Oferta especial</h3>
+<p>Descripción del producto.</p>
+<p class="precio">29,99 €</p>
 <button>Comprar</button>
 </div>
+
+<div class="producto">
+<img src="https://via.placeholder.com/300">
+<h3>Producto destacado</h3>
+<p>Descripción del producto.</p>
+<p class="precio">39,99 €</p>
+<button>Comprar</button>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 La Tienda de David - Todos los derechos reservados</p>
+</footer>
 
 </body>
 </html>
