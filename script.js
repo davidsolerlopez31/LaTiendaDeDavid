@@ -12,6 +12,13 @@ const totalTexto = document.getElementById("total");
 
 const carritoBox = document.getElementById("carrito");
 const botonCarrito = document.getElementById("verCarrito");
+const cerrarCarrito = document.getElementById("cerrarCarrito");
+
+cerrarCarrito.addEventListener("click",()=>{
+
+    carritoBox.classList.add("oculto");
+
+});
 
 const botonesComprar = document.querySelectorAll(".comprar");
 
