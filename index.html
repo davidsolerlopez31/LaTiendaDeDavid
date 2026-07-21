@@ -2,404 +2,713 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>La Tienda de David</title>
+<meta charset="UTF-8">
 
-    <meta name="description" content="La Tienda de David - Moda, Tecnología y Accesorios al mejor precio.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>La Tienda de David</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description" content="La Tienda de David - Moda, tecnología y accesorios">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
 <header>
 
-    <div class="logo">
+<div class="logo">
 
-        <h1>🛍️ La Tienda de David</h1>
+<h1>🛍️ La Tienda de David</h1>
 
-    </div>
+</div>
 
-    <nav class="menu">
 
-        <button data-categoria="todos">Inicio</button>
-        <button data-categoria="moda">Moda</button>
-        <button data-categoria="tecnologia">Tecnología</button>
-        <button data-categoria="accesorios">Accesorios</button>
+<nav class="menu">
 
-    </nav>
+<button data-categoria="todos">
+Inicio
+</button>
 
-    <div class="acciones">
+<button data-categoria="moda">
+Moda
+</button>
 
-        <input
-            type="text"
-            id="buscador"
-            placeholder="Buscar productos...">
+<button data-categoria="tecnologia">
+Tecnología
+</button>
 
-        <button id="verCarrito">
-            🛒 Carrito
-            <span id="contador">0</span>
-        </button>
+<button data-categoria="accesorios">
+Accesorios
+</button>
 
-    </div>
+</nav>
+
+
+<div class="acciones">
+
+<input 
+id="buscador"
+type="text"
+placeholder="Buscar productos...">
+
+
+<button id="verCarrito">
+
+🛒 Carrito 
+<span id="contador">0</span>
+
+</button>
+
+</div>
+
 
 </header>
 
+
+
 <section class="hero">
 
-    <div class="hero-texto">
 
-        <h2>Bienvenido a La Tienda de David</h2>
+<div class="hero-texto">
 
-        <p>
 
-            Encuentra moda, tecnología y accesorios al mejor precio.
+<h2>
+Bienvenido a La Tienda de David
+</h2>
 
-        </p>
 
-        <a href="#productos" class="btnHero">
+<p>
+Productos de calidad al mejor precio
+</p>
 
-            Ver productos
 
-        </a>
+<a href="#productos" class="btnHero">
+Ver productos
+</a>
 
-    </div>
+
+</div>
+
 
 </section>
 
+
+
 <main id="productos" class="productos">
     <!-- CAMISETA -->
+
 <div class="producto" data-categoria="moda">
 
-    <img src="imágenes/camiseta.jpg" alt="Camiseta">
+<img src="imagenes/camiseta.jpg" alt="Camiseta">
 
-    <h2>Camiseta Premium</h2>
+<h2>Camiseta Premium</h2>
 
-    <p>Camiseta de algodón 100% de alta calidad.</p>
+<p>Camiseta de algodón 100% de alta calidad.</p>
 
-    <strong>19,99 €</strong>
+<strong>19.99 €</strong>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Camiseta Premium"
-            data-precio="19.99">
-            Comprar
-        </button>
+<div class="botones">
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<button 
+class="comprar"
+data-nombre="Camiseta Premium"
+data-precio="19.99">
+
+Comprar
+
+</button>
+
+
+<button
+class="detalles"
+data-imagen="imagenes/camiseta.jpg"
+data-titulo="Camiseta Premium"
+data-descripcion="Camiseta de algodón 100% de alta calidad."
+data-precio="19.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
+
+</div>
+
+
 
 
 <!-- SUDADERA -->
+
+
 <div class="producto" data-categoria="moda">
 
-    <img src="imágenes/sudadera.jpg" alt="Sudadera">
 
-    <h2>Sudadera Premium</h2>
+<img src="imagenes/sudadera.jpg" alt="Sudadera">
 
-    <p>Sudadera cómoda y cálida para cualquier ocasión.</p>
 
-    <strong>34,99 €</strong>
+<h2>Sudadera Premium</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Sudadera Premium"
-            data-precio="34.99">
-            Comprar
-        </button>
+<p>Sudadera cómoda y cálida para cualquier ocasión.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>34.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button 
+class="comprar"
+data-nombre="Sudadera Premium"
+data-precio="34.99">
+
+Comprar
+
+</button>
+
+
+<button
+class="detalles"
+data-imagen="imagenes/sudadera.jpg"
+data-titulo="Sudadera Premium"
+data-descripcion="Sudadera cómoda y cálida para cualquier ocasión."
+data-precio="34.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
+
+
+</div>
+
+
+
 
 
 <!-- ZAPATILLAS -->
+
+
 <div class="producto" data-categoria="moda">
 
-    <img src="imágenes/zapatillas.jpg" alt="Zapatillas">
 
-    <h2>Zapatillas Urban</h2>
+<img src="imagenes/zapatillas.jpg" alt="Zapatillas">
 
-    <p>Diseño moderno y máxima comodidad.</p>
 
-    <strong>59,99 €</strong>
+<h2>Zapatillas Urban</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Zapatillas Urban"
-            data-precio="59.99">
-            Comprar
-        </button>
+<p>Diseño moderno y máxima comodidad.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>59.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button 
+class="comprar"
+data-nombre="Zapatillas Urban"
+data-precio="59.99">
+
+Comprar
+
+</button>
+
+
+
+<button
+class="detalles"
+data-imagen="imagenes/zapatillas.jpg"
+data-titulo="Zapatillas Urban"
+data-descripcion="Diseño moderno y máxima comodidad."
+data-precio="59.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
-    <!-- AURICULARES -->
+
+
+</div>
+
+<!-- AURICULARES -->
+
 <div class="producto" data-categoria="tecnologia">
 
-    <img src="imágenes/auriculares.jpg" alt="Auriculares">
 
-    <h2>Auriculares Bluetooth</h2>
+<img src="imagenes/auriculares.jpg" alt="Auriculares">
 
-    <p>Sonido de alta calidad con conexión inalámbrica.</p>
 
-    <strong>39,99 €</strong>
+<h2>Auriculares Bluetooth</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Auriculares Bluetooth"
-            data-precio="39.99">
-            Comprar
-        </button>
+<p>Sonido de alta calidad con conexión inalámbrica.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>39.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button
+class="comprar"
+data-nombre="Auriculares Bluetooth"
+data-precio="39.99">
+
+Comprar
+
+</button>
+
+
+
+<button
+class="detalles"
+data-imagen="imagenes/auriculares.jpg"
+data-titulo="Auriculares Bluetooth"
+data-descripcion="Sonido de alta calidad con conexión inalámbrica."
+data-precio="39.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
+
+
+</div>
+
+
+
+
 
 <!-- SMARTWATCH -->
+
+
 <div class="producto" data-categoria="tecnologia">
 
-    <img src="imágenes/smartwatch.jpg" alt="Smartwatch">
 
-    <h2>Smartwatch Pro</h2>
+<img src="imagenes/smartwatch.jpg" alt="Smartwatch">
 
-    <p>Controla tu actividad y recibe notificaciones.</p>
 
-    <strong>79,99 €</strong>
+<h2>Smartwatch Pro</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Smartwatch Pro"
-            data-precio="79.99">
-            Comprar
-        </button>
+<p>Controla tu actividad y recibe notificaciones.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>79.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button
+class="comprar"
+data-nombre="Smartwatch Pro"
+data-precio="79.99">
+
+Comprar
+
+</button>
+
+
+
+<button
+class="detalles"
+data-imagen="imagenes/smartwatch.jpg"
+data-titulo="Smartwatch Pro"
+data-descripcion="Controla tu actividad y recibe notificaciones."
+data-precio="79.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
+
+
+</div>
+
+
+
+
 
 <!-- CARGADOR -->
+
+
 <div class="producto" data-categoria="tecnologia">
 
-    <img src="imágenes/cargador.jpg" alt="Cargador">
 
-    <h2>Cargador USB-C</h2>
+<img src="imagenes/cargador.jpg" alt="Cargador">
 
-    <p>Carga rápida compatible con múltiples dispositivos.</p>
 
-    <strong>14,99 €</strong>
+<h2>Cargador USB-C</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Cargador USB-C"
-            data-precio="14.99">
-            Comprar
-        </button>
+<p>Carga rápida compatible con múltiples dispositivos.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>14.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button
+class="comprar"
+data-nombre="Cargador USB-C"
+data-precio="14.99">
+
+Comprar
+
+</button>
+
+
+
+<button
+class="detalles"
+data-imagen="imagenes/cargador.jpg"
+data-titulo="Cargador USB-C"
+data-descripcion="Carga rápida compatible con múltiples dispositivos."
+data-precio="14.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
-    <!-- TECLADO -->
+
+
+</div>
+
+<!-- TECLADO -->
+
 <div class="producto" data-categoria="accesorios">
 
-    <img src="imágenes/teclado.jpg" alt="Teclado">
 
-    <h2>Teclado Mecánico RGB</h2>
+<img src="imagenes/teclado.jpg" alt="Teclado">
 
-    <p>Teclado con iluminación RGB y switches mecánicos.</p>
 
-    <strong>49,99 €</strong>
+<h2>Teclado Mecánico RGB</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Teclado Mecánico RGB"
-            data-precio="49.99">
-            Comprar
-        </button>
+<p>Teclado con iluminación RGB y switches mecánicos.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>49.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button
+class="comprar"
+data-nombre="Teclado Mecánico RGB"
+data-precio="49.99">
+
+Comprar
+
+</button>
+
+
+
+<button
+class="detalles"
+data-imagen="imagenes/teclado.jpg"
+data-titulo="Teclado Mecánico RGB"
+data-descripcion="Teclado con iluminación RGB y switches mecánicos."
+data-precio="49.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
+
+
+</div>
+
+
+
+
 
 <!-- RATÓN -->
+
+
 <div class="producto" data-categoria="accesorios">
 
-    <img src="imágenes/raton.jpg" alt="Ratón">
 
-    <h2>Ratón Gaming</h2>
+<img src="imagenes/raton.jpg" alt="Ratón">
 
-    <p>Ratón ergonómico de alta precisión para trabajo y juegos.</p>
 
-    <strong>29,99 €</strong>
+<h2>Ratón Gaming</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Ratón Gaming"
-            data-precio="29.99">
-            Comprar
-        </button>
+<p>Ratón ergonómico de alta precisión para trabajo y juegos.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>29.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button
+class="comprar"
+data-nombre="Ratón Gaming"
+data-precio="29.99">
+
+Comprar
+
+</button>
+
+
+
+<button
+class="detalles"
+data-imagen="imagenes/raton.jpg"
+data-titulo="Ratón Gaming"
+data-descripcion="Ratón ergonómico de alta precisión para trabajo y juegos."
+data-precio="29.99 €">
+
+Ver detalles
+
+</button>
+
 
 </div>
 
+
+</div>
+
+
+
+
+
 <!-- ALFOMBRILLA -->
+
+
 <div class="producto" data-categoria="accesorios">
 
-    <img src="imágenes/alfombrilla.jpg" alt="Alfombrilla">
 
-    <h2>Alfombrilla XL</h2>
+<img src="imagenes/alfombrilla.jpg" alt="Alfombrilla">
 
-    <p>Superficie amplia y antideslizante para teclado y ratón.</p>
 
-    <strong>19,99 €</strong>
+<h2>Alfombrilla XL</h2>
 
-    <div class="botones">
 
-        <button class="comprar"
-            data-nombre="Alfombrilla XL"
-            data-precio="19.99">
-            Comprar
-        </button>
+<p>Superficie amplia y antideslizante para teclado y ratón.</p>
 
-        <button class="detalles">
-            Ver detalles
-        </button>
 
-    </div>
+<strong>19.99 €</strong>
+
+
+
+<div class="botones">
+
+
+<button
+class="comprar"
+data-nombre="Alfombrilla XL"
+data-precio="19.99">
+
+Comprar
+
+</button>
+
+
+
+<button
+class="detalles"
+data-imagen="imagenes/alfombrilla.jpg"
+data-titulo="Alfombrilla XL"
+data-descripcion="Superficie amplia y antideslizante para teclado y ratón."
+data-precio="19.99 €">
+
+Ver detalles
+
+</button>
+
+
+</div>
+
 
 </div>
 
 </main>
-    <!-- CARRITO -->
+
+
+<!-- CARRITO -->
 
 <aside id="carrito" class="carrito oculto">
 
-    <h2>🛒 Tu carrito</h2>
 
-    <div id="listaCarrito"></div>
+<h2>🛒 Tu carrito</h2>
 
-    <h3>Total: <span id="total">0</span> €</h3>
 
-    <button id="vaciarCarrito">
-        Vaciar carrito
-    </button>
+<div id="listaCarrito"></div>
 
-    <hr>
 
-    <h3>Datos del cliente</h3>
+<h3>
+Total:
+<span id="total">0</span> €
+</h3>
 
-    <input
-        type="text"
-        id="nombreCliente"
-        placeholder="Nombre completo">
 
-    <input
-        type="tel"
-        id="telefonoCliente"
-        placeholder="Teléfono">
 
-    <textarea
-        id="direccionCliente"
-        placeholder="Dirección de entrega"></textarea>
+<button id="vaciarCarrito">
 
-    <button id="pedido">
-        Preparar pedido
-    </button>
+Vaciar carrito
+
+</button>
+
+
+
+<hr>
+
+
+
+<h3>Datos del cliente</h3>
+
+
+
+<input 
+type="text"
+id="nombreCliente"
+placeholder="Nombre completo">
+
+
+
+<input
+type="tel"
+id="telefonoCliente"
+placeholder="Teléfono">
+
+
+
+<textarea
+id="direccionCliente"
+placeholder="Dirección de entrega">
+</textarea>
+
+
+
+<button id="pedido">
+
+Preparar pedido
+
+</button>
+
+
 
 </aside>
 
 
-<!-- MODAL PRODUCTO -->
+
+
+
+<!-- MODAL DETALLES PRODUCTO -->
+
 
 <div id="modalProducto" class="modal oculto">
 
-    <div class="modal-contenido">
 
-        <span id="cerrarModal">&times;</span>
+<div class="modal-contenido">
 
-        <img
-            id="modalImagen"
-            src=""
-            alt="Producto">
 
-        <h2 id="modalTitulo"></h2>
+<span id="cerrarModal">
 
-        <p id="modalDescripcion"></p>
+&times;
 
-        <h3 id="modalPrecio"></h3>
+</span>
 
-        <button id="modalComprar">
-            Añadir al carrito
-        </button>
 
-    </div>
+
+<img
+id="modalImagen"
+src=""
+alt="Producto">
+
+
+
+<h2 id="modalTitulo"></h2>
+
+
+
+<p id="modalDescripcion"></p>
+
+
+
+<h3 id="modalPrecio"></h3>
+
+
+
+<button id="modalComprar">
+
+Añadir al carrito
+
+</button>
+
+
 
 </div>
 
 
+</div>
+
+
+
+
+
+<!-- FOOTER -->
+
+
 <footer>
 
-    <p>
 
-        © 2026 La Tienda de David · Todos los derechos reservados.
+<p>
 
-    </p>
+© 2026 La Tienda de David · Todos los derechos reservados.
+
+</p>
+
 
 </footer>
 
+
+
+
+
 <script src="script.js"></script>
 
-</body>
-</html>
 
-    
+</body>
+
+</html>
