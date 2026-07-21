@@ -78,11 +78,12 @@ function actualizarCarrito(){
 
 
     contador.textContent = cantidad;
-    totalTexto.textContent = total;
-
-}
+totalTexto.textContent = total;
 
 localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+
 
 
 // Eliminar
