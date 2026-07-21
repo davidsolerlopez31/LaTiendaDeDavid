@@ -141,15 +141,27 @@ botonPedido.addEventListener("click", () => {
 
     const formaPago = document.getElementById("pago").value;
 
-    let mensaje = "PEDIDO - LA TIENDA DE DAVID\n\n";
+    const resumen = document.getElementById("resumenPedido");
+    const confirmacion = document.getElementById("confirmacion");
+
+    let texto = "<h3>Tu pedido:</h3>";
 
     carrito.forEach(producto => {
-        mensaje += `${producto.nombre} x${producto.cantidad} - ${producto.precio * producto.cantidad}€\n`;
+        texto += `
+        <p>
+        ${producto.nombre} x${producto.cantidad}
+        - ${producto.precio * producto.cantidad} €
+        </p>`;
     });
 
-    mensaje += "\nTotal: " + totalTexto.textContent + "€";
-    mensaje += "\nForma de pago: " + formaPago;
+    texto += `
+    <hr>
+    <p>Total: ${totalTexto.textContent} €</p>
+    <p>Pago elegido: ${formaPago}</p>
+    `;
 
-    alert(mensaje);
+    resumen.innerHTML = texto;
+
+    confirmacion.classList.remove("oculto");
 
 });
