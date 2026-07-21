@@ -13,15 +13,17 @@
     <h1>La Tienda de David</h1>
     <nav class="menu">
 
-    <a href="#">🏠 Inicio</a>
+<button onclick="mostrarTodos()">🏠 Inicio</button>
 
-    <a href="#moda">👕 Moda</a>
+<button onclick="filtrarCategoria('moda')">👕 Moda</button>
 
-    <a href="#tecnologia">💻 Tecnología</a>
+<button onclick="filtrarCategoria('tecnologia')">💻 Tecnología</button>
 
-    <a href="#accesorios">🎧 Accesorios</a>
+<button onclick="filtrarCategoria('accesorios')">🎧 Accesorios</button>
 
-    <a href="#carrito">🛒 Carrito</a>
+<button onclick="document.getElementById('carrito').scrollIntoView()">🛒 Carrito</button>
+
+</nav>
 
 </nav>
     <p>Productos de calidad al mejor precio</p>
