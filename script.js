@@ -108,13 +108,33 @@ buscador.addEventListener("input",()=>{
 
 // Preparar pedido
 botonPedido.addEventListener("click",()=>{
+    const nombreCliente = document.getElementById("nombreCliente").value;
+const telefonoCliente = document.getElementById("telefonoCliente").value;
+const direccionCliente = document.getElementById("direccionCliente").value;
+
+
+if(nombreCliente === "" || telefonoCliente === "" || direccionCliente === ""){
+
+    alert("Completa todos los datos del cliente");
+
+    return;
+
+}
 
     if(carrito.length===0){
         alert("El carrito está vacío");
         return;
     }
 
-    let mensaje="PEDIDO LA TIENDA DE DAVID\n\n";
+    let mensaje =
+`PEDIDO LA TIENDA DE DAVID
+
+Cliente: ${nombreCliente}
+Teléfono: ${telefonoCliente}
+Dirección: ${direccionCliente}
+
+Productos:
+`;
 
     carrito.forEach(producto=>{
 
