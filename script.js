@@ -42,7 +42,11 @@ botones.forEach(boton => {
 // Mostrar carrito
 verCarrito.addEventListener("click", () => {
 
-    carritoBox.classList.toggle("oculto");
+    if (carritoBox.classList.contains("oculto")) {
+        carritoBox.classList.remove("oculto");
+    } else {
+        carritoBox.classList.add("oculto");
+    }
 
 });
 
