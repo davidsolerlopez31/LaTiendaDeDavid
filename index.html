@@ -9,174 +9,150 @@
 
 <body>
 
-<header class="header">
+<header>
+    <h1>La Tienda de David</h1>
+    <p>Productos de calidad al mejor precio</p>
 
-    <div class="logo">
-        🛒 La Tienda de David
-    </div>
+    <input type="text" id="buscador" placeholder="Buscar productos...">
 
-    <div class="search">
-        <input type="text" id="searchInput" placeholder="¿Qué estás buscando?">
-        <button>🔍</button>
-    </div>
-
-    <div class="cart">
-        🛍️ <span id="cartCount">0</span>
-    </div>
-
+    <button id="verCarrito">
+        🛒 Carrito (<span id="contador">0</span>)
+    </button>
 </header>
 
 
-<section class="hero">
+<main>
 
-    <div class="hero-text">
-        <h1>Encuentra todo lo que necesitas</h1>
-        <p>Moda, tecnología y accesorios en un solo lugar.</p>
-        <button>Ver productos</button>
-    </div>
+<section id="productos">
+
+    <article class="producto">
+        <img src="images/camiseta.jpg" alt="Camiseta">
+        <h2>Camiseta</h2>
+        <p>Camiseta cómoda y moderna.</p>
+        <strong>15 €</strong>
+        <button class="comprar" data-nombre="Camiseta" data-precio="15">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/sudadera.jpg" alt="Sudadera">
+        <h2>Sudadera</h2>
+        <p>Sudadera cálida para todos los días.</p>
+        <strong>30 €</strong>
+        <button class="comprar" data-nombre="Sudadera" data-precio="30">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/zapatillas.jpg" alt="Zapatillas">
+        <h2>Zapatillas</h2>
+        <p>Zapatillas cómodas y resistentes.</p>
+        <strong>45 €</strong>
+        <button class="comprar" data-nombre="Zapatillas" data-precio="45">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/auriculares.jpg" alt="Auriculares">
+        <h2>Auriculares</h2>
+        <p>Auriculares inalámbricos.</p>
+        <strong>25 €</strong>
+        <button class="comprar" data-nombre="Auriculares" data-precio="25">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/smartwatch.jpg" alt="Smartwatch">
+        <h2>Smartwatch</h2>
+        <p>Reloj inteligente deportivo.</p>
+        <strong>60 €</strong>
+        <button class="comprar" data-nombre="Smartwatch" data-precio="60">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/cargador.jpg" alt="Cargador">
+        <h2>Cargador</h2>
+        <p>Carga rápida universal.</p>
+        <strong>12 €</strong>
+        <button class="comprar" data-nombre="Cargador" data-precio="12">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/teclado.jpg" alt="Teclado">
+        <h2>Teclado</h2>
+        <p>Teclado para ordenador.</p>
+        <strong>35 €</strong>
+        <button class="comprar" data-nombre="Teclado" data-precio="35">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/raton.jpg" alt="Ratón">
+        <h2>Ratón</h2>
+        <p>Ratón inalámbrico.</p>
+        <strong>18 €</strong>
+        <button class="comprar" data-nombre="Ratón" data-precio="18">
+            Añadir al carrito
+        </button>
+    </article>
+
+
+    <article class="producto">
+        <img src="images/alfombrilla.jpg" alt="Alfombrilla">
+        <h2>Alfombrilla</h2>
+        <p>Alfombrilla gaming.</p>
+        <strong>10 €</strong>
+        <button class="comprar" data-nombre="Alfombrilla" data-precio="10">
+            Añadir al carrito
+        </button>
+    </article>
+
 
 </section>
 
 
-<section class="categories">
+<section id="carrito" class="oculto">
 
-    <h2>Categorías</h2>
+    <h2>🛒 Tu carrito</h2>
 
-    <div class="category-container">
+    <div id="listaCarrito"></div>
 
-        <div class="category">
-            👕
-            <h3>Moda</h3>
-        </div>
+    <h3>Total: <span id="total">0</span> €</h3>
 
-        <div class="category">
-            📱
-            <h3>Tecnología</h3>
-        </div>
 
-        <div class="category">
-            🎧
-            <h3>Electrónica</h3>
-        </div>
+    <h3>Forma de pago</h3>
 
-        <div class="category">
-            🏠
-            <h3>Accesorios</h3>
-        </div>
+    <select id="pago">
+        <option>PayPal</option>
+        <option>Transferencia bancaria</option>
+        <option>Pago al recibir</option>
+    </select>
 
-    </div>
+
+    <button id="pedido">
+        Preparar pedido
+    </button>
 
 </section>
 
 
-<section class="products">
-
-<h2>Productos destacados</h2>
-
-
-<div class="product-grid">
-
-
-<article class="product">
-<img src="images/camiseta.jpg" alt="Camiseta">
-<h3>Camiseta moderna</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>19,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/sudadera.jpg" alt="Sudadera">
-<h3>Sudadera urbana</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>34,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/zapatillas.jpg" alt="Zapatillas">
-<h3>Zapatillas deportivas</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>49,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/auriculares.jpg" alt="Auriculares">
-<h3>Auriculares Bluetooth</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>29,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/smartwatch.jpg" alt="Smartwatch">
-<h3>Smartwatch</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>59,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/cargador.jpg" alt="Cargador">
-<h3>Cargador rápido</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>14,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/teclado.jpg" alt="Teclado">
-<h3>Teclado gaming</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>39,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/raton.jpg" alt="Ratón">
-<h3>Ratón gaming</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>19,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-<article class="product">
-<img src="images/alfombrilla.jpg" alt="Alfombrilla">
-<h3>Alfombrilla XL</h3>
-<p>⭐⭐⭐⭐⭐</p>
-<strong>12,99 €</strong>
-<button class="add-cart">Añadir al carrito</button>
-</article>
-
-
-</div>
-
-</section>
-
-
-<section class="offers">
-
-<h2>🔥 Ofertas especiales</h2>
-
-<p>Grandes descuentos cada semana.</p>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 La Tienda de David</p>
-
-</footer>
+</main>
 
 
 <script src="script.js"></script>
