@@ -1,57 +1,163 @@
-let cartCount = 0;
+let carrito = [];
 
-const cartNumber = document.getElementById("cartCount");
-const buttons = document.querySelectorAll(".add-cart");
+const botones = document.querySelectorAll(".comprar");
+const contador = document.getElementById("contador");
+const listaCarrito = document.getElementById("listaCarrito");
+const totalTexto = document.getElementById("total");
+const carritoBox = document.getElementById("carrito");
+const verCarrito = document.getElementById("verCarrito");
+const botonPedido = document.getElementById("pedido");
+const buscador = document.getElementById("buscador");
 
 
-// CARRITO
+// Añadir productos al carrito
+botones.forEach(boton => {
 
-buttons.forEach(button => {
+    boton.addEventListener("click", () => {
 
-    button.addEventListener("click", () => {
+        const nombre = boton.dataset.nombre;
+        const precio = Number(boton.dataset.precio);
 
-        cartCount++;
+        const productoExistente = carrito.find(
+            producto => producto.nombre === nombre
+        );
 
-        cartNumber.textContent = cartCount;
+        if(productoExistente){
+            productoExistente.cantidad++;
+        } else {
+            carrito.push({
+                nombre: nombre,
+                precio: precio,
+                cantidad: 1
+            });
+        }
 
-        button.textContent = "Añadido ✓";
-
-        setTimeout(() => {
-            button.textContent = "Añadir al carrito";
-        }, 1200);
+        actualizarCarrito();
 
     });
 
 });
 
 
-// BUSCADOR
+// Mostrar carrito
+verCarrito.addEventListener("click", () => {
 
-const searchInput = document.getElementById("searchInput");
-const products = document.querySelectorAll(".product");
+    carritoBox.classList.toggle("oculto");
 
-
-searchInput.addEventListener("input", () => {
-
-    const searchText = searchInput.value.toLowerCase();
+});
 
 
-    products.forEach(product => {
+// Actualizar carrito
+function actualizarCarrito(){
 
-        const name = product.querySelector("h3")
-        .textContent.toLowerCase();
+    listaCarrito.innerHTML = "";
+
+    let total = 0;
+    let cantidadTotal = 0;
 
 
-        if(name.includes(searchText)){
+    carrito.forEach((producto, indice) => {
 
-            product.style.display = "block";
+        total += producto.precio * producto.cantidad;
+        cantidadTotal += producto.cantidad;
 
+
+        const linea = document.createElement("div");
+
+        linea.innerHTML = `
+        <span>
+        ${producto.nombre} 
+        x${producto.cantidad}
+        </span>
+
+        <span>
+        ${producto.precio * producto.cantidad} €
+        <button onclick="eliminarProducto(${indice})">
+        ❌
+        </button>
+        </span>
+        `;
+
+
+        listaCarrito.appendChild(linea);
+
+    });
+
+
+    contador.textContent = cantidadTotal;
+    totalTexto.textContent = total;
+
+}
+
+
+// Eliminar producto
+function eliminarProducto(indice){
+
+    carrito.splice(indice,1);
+
+    actualizarCarrito();
+
+}
+
+
+// Buscador
+buscador.addEventListener("input", () => {
+
+    const texto = buscador.value.toLowerCase();
+
+    const productos = document.querySelectorAll(".producto");
+
+
+    productos.forEach(producto => {
+
+        const nombre = producto
+        .querySelector("h2")
+        .textContent
+        .toLowerCase();
+
+
+        if(nombre.includes(texto)){
+            producto.style.display = "block";
         } else {
-
-            product.style.display = "none";
-
+            producto.style.display = "none";
         }
 
     });
+
+});
+
+
+// Preparar pedido
+botonPedido.addEventListener("click", () => {
+
+
+    if(carrito.length === 0){
+
+        alert("El carrito está vacío");
+
+        return;
+
+    }
+
+
+    const formaPago = document.getElementById("pago").value;
+
+
+    let mensaje = "PEDIDO - LA TIENDA DE DAVID\n\n";
+
+
+    carrito.forEach(producto => {
+
+        mensaje += `${producto.nombre} x${producto.cantidad} - ${producto.precio * producto.cantidad}€\n`;
+
+    });
+
+
+    mensaje += `\nTotal: ${totalTexto.textContent}€`;
+    mensaje += `\nForma de pago: ${formaPago}`;
+
+
+    alert(mensaje);
+
 
 });
